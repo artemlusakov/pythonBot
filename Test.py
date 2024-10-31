@@ -6,8 +6,10 @@
 import telebot
 from bot_handlers import setup_bot_handlers
 
-TOKEN = '7656211082:AAGoisBmYkH_VH2JE2lOFMNkgIUBpPJxWdQ'
+file = open("./mytoken.txt")
+TOKEN = file.read()
 bot = telebot.TeleBot(TOKEN)
+
 
 # Устанавливаем обработчики бота
 setup_bot_handlers(bot)

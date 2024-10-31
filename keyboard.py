@@ -18,11 +18,11 @@ def create_inline_keyboard():
         InlineKeyboardButton(text="Наши акции", callback_data="actions")
     )
     inline_keyboard.add(
-        InlineKeyboardButton(text="Оформить быстрый заказ", callback_data="order"),
+        InlineKeyboardButton(text="Контакты", callback_data="contacts"),
         InlineKeyboardButton(text="Помощь", callback_data="help")
     )
     inline_keyboard.add(
-        InlineKeyboardButton(text="Контакты", callback_data="contacts")
+        InlineKeyboardButton(text="Связатся с нами", callback_data="order")
     )
     
     return inline_keyboard
