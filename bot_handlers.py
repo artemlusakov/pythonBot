@@ -37,9 +37,13 @@ def setup_bot_handlers(bot):
             bot.send_message(chat_id=call.from_user.id, text=actions_text)
         
         elif call.data == "order":
-            order_text = "Обращение в поддержку идёт с помощью второго бота компании @SmtMaxAssistantbot в случае повторноно вопроса воспользуйтесь меню или напишите /start"
-            # bot.answer_callback_query(callback_query_id=call.id, text=order_text)
-            bot.send_message(chat_id=call.from_user.id, text=order_text)
+            # Создаем кнопку для перехода на другой бот
+            switch_to_bot_button = InlineKeyboardButton(text="Перейти к поддержке", url=f"https://t.me/{'SmtMaxAssistantbot'}")
+            markup = InlineKeyboardMarkup().add(switch_to_bot_button)
+
+            order_text = "Обращение с поддержкой происходит с помощью второго бота компании для вашей безопасности в случае повторноно вопроса воспользуйтесь меню или напишите /start"
+            bot.send_message(chat_id=call.from_user.id, text=order_text, reply_markup=markup)
+            
         
         elif call.data == "contacts":
             contacts_text = "Телефон: +7 (999) 123-45-67\nEmail: support@example.com"
